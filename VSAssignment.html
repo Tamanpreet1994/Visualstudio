@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Song</title>
+    <style>
+        /* Add some CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #video-container {
+            margin-top: 20px;
+        }
+
+        /* Animated box */
+        #animate-box {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            position: relative;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Favorite Song</h1>
+    <p>Enjoy this music video!</p>
+
+    <!-- Embed YouTube Video -->
+    <div id="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" 
+                title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Box for Animation -->
+    <div id="animate-box"></div>
+
+    <script>
+        // JavaScript Animation - Move the box horizontally
+        let box = document.getElementById("animate-box");
+        let position = 0;
+        let direction = 1; // 1 = right, -1 = left
+
+        function moveBox() {
+            position += direction * 2; // Change the position by 2 pixels
+            box.style.left = position + "px";
+
+            // Reverse direction when reaching edges
+            if (position > 300 || position < 0) {
+                direction *= -1;
+            }
+
+            requestAnimationFrame(moveBox); // Smooth animation loop
+        }
+
+        // Start the animation
+        moveBox();
+    </script>
+</body>
+</html>
